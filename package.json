@@ -1,0 +1,19 @@
+{
+  "name": "restaurant_page",
+  "version": "1.0.0",
+  "description": "TOP restaurant page project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KPdev94/restaurant_page.git"
+  },
+  "author": "KPdev94",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KPdev94/restaurant_page/issues"
+  },
+  "homepage": "https://github.com/KPdev94/restaurant_page#readme"
+}
