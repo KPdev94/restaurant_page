@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/KPdev94/restaurant_page/issues"
   },
-  "homepage": "https://github.com/KPdev94/restaurant_page#readme"
+  "homepage": "https://github.com/KPdev94/restaurant_page#readme",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
 }
