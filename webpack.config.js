@@ -13,14 +13,11 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
-				test: /\.(jpg|JPG|jpeg|png|gif|mp3|svg|ttf|woff2|woff|eot)$/gi,
-				use: {
-					loader: "file-loader",
-					options: {
-						name: "[name].[hash].[ext]",
-						outputPath: "assets/imgs"
-					},
-				},
+                test: /\.(jpe?g|png|gif|svg)$/i, 
+                loader: 'file-loader',
+                options: {
+                  name: '/public/icons/[name].[ext]'
+                }
 			},
         ],
     },
