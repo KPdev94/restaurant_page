@@ -6,9 +6,7 @@ import Chicken from './menu-items/chicken.jpg';
 import Fries from './menu-items/fries.jpg';
 import Mac from './menu-items/maccheese.jpeg';
 import Pop from './menu-items/soda.jpeg';
-
-let content = document.getElementById('content');
-
+import Buns from './menu-items/buns.jpg';
 
 class menuItem{
     constructor(itemName, itemPic, itemDesc, itemToppings, itemPrice){
@@ -29,6 +27,7 @@ let MENU = [
 ]
 
 function createHome() {
+    let dynamicPageArea = document.getElementById('dynamicPage');
 
     let homeDiv = document.createElement('div');
     homeDiv.setAttribute('id', 'home');
@@ -39,7 +38,7 @@ function createHome() {
     let blurb = document.createElement('p');
     blurb.textContent = "Bros. The ones you can depend on. The ones you smile for when they're thriving. The ones you love. Bros. Started in 1969, by brothers Br and Os established the first really good burger place ever. Before them people didnt really understand what being bros was, or what burgers were. They did it all from bun to bun, side by side, bro and bro.";
 
-    content.appendChild(homeDiv);
+    dynamicPageArea.appendChild(homeDiv);
     homeDiv.appendChild(BrosPic);
     homeDiv.appendChild(blurb);
 
@@ -47,13 +46,15 @@ function createHome() {
 }
 
 function createMenu() {
+    let dynamicPageArea = document.getElementById('dynamicPage');
+
     let menuDiv = document.createElement('div');
     menuDiv.setAttribute('id', 'menu');
 
     let menuList = document.createElement('div');
     menuList.setAttribute('id', 'menu-list');
 
-    content.appendChild(menuDiv);
+    dynamicPageArea.appendChild(menuDiv);
     menuDiv.appendChild(menuList);
 
     MENU.forEach((item) => {
@@ -82,11 +83,48 @@ function createMenu() {
     return menuDiv;
 }
 
+function createContact() {
+    let dynamicPageArea = document.getElementById('dynamicPage');
+
+    let contactDiv = document.createElement('div');
+    contactDiv.setAttribute('id', 'contact');
+
+    let contactInfo = document.createElement('div');
+    contactInfo.setAttribute('id', 'contactInfo');
+    contactInfo.style.backgroundImage = `url(${Buns})`;
+
+    dynamicPageArea.appendChild(contactDiv);
+    contactDiv.appendChild(contactInfo);
+
+    let contactName = document.createElement('h2');
+    contactName.innerText = 'BrOs Burgers Management Team';
+
+    let contactAddress = document.createElement('h3');
+    contactAddress.innerText = '9001 Bros Ave\nBroville, NJ 06969';
+
+    let contactNumber = document.createElement('p');
+    contactNumber.innerText = 'Phone number: 973-420-1234'
+
+    contactInfo.appendChild(contactName);
+    contactInfo.appendChild(contactAddress);
+    contactInfo.appendChild(contactNumber);
+
+    return contactInfo;
+}
+
 function createTheme() {
+    let content = document.getElementById('content');
+
     let heading = document.createElement('heading');
     heading.setAttribute('id', 'heading');
 
-    let title = document.createElement('div');
+    let dynamicPage = document.createElement('div');
+    dynamicPage.setAttribute('id', 'dynamicPage');
+
+    let footer = document.createElement('footer');
+    footer.setAttribute('id', 'footer');
+
+    let title = document.createElement('h1');
     title.setAttribute('id', 'title');
     title.innerHTML = `<red>Br</red><yellow>Os</yellow> <brown>Burgers</brown>`;
 
@@ -107,38 +145,45 @@ function createTheme() {
     contactButton.textContent = 'CONTACT';
     
     content.appendChild(heading);
+
     heading.appendChild(title);
     heading.appendChild(navBar);
-    navBar.appendChild(homeButton);
-    navBar.appendChild(menuButton);
-    navBar.appendChild(contactButton);
+    document.querySelector('#navBar').appendChild(homeButton);
+    document.querySelector('#navBar').appendChild(menuButton);
+    document.querySelector('#navBar').appendChild(contactButton);
 
-    homeButton.addEventListener('click', () => {
-        content.removeChild(content.lastChild);
+    content.appendChild(dynamicPage);
+    content.appendChild(footer);
+
+    let dynamicPageArea = document.getElementById('dynamicPage');
+
+    document.querySelector('#homeBtn').addEventListener('click', () => {
+        dynamicPageArea.removeChild(dynamicPageArea.lastChild);
         menuButton.classList.remove("selected");
         contactButton.classList.remove("selected");
         homeButton.classList.add("selected");
-        content.appendChild(createHome());
+        dynamicPageArea.appendChild(createHome());
     });
 
-    menuButton.addEventListener('click',  () => {
-        content.removeChild(content.lastChild);
+    document.querySelector('#menuBtn').addEventListener('click',  () => {
+        dynamicPageArea.removeChild(dynamicPageArea.lastChild);
         homeButton.classList.remove("selected");
         contactButton.classList.remove("selected");
         menuButton.classList.add("selected");
-        content.appendChild(createMenu());
+        dynamicPageArea.appendChild(createMenu());
     });
-    /*
-    contactButton.addEventListener('click',  () => {
-        content.removeChild(content.lastChild);
+    
+    document.querySelector('#contactBtn').addEventListener('click',  () => {
+        dynamicPageArea.removeChild(dynamicPageArea.lastChild);
         homeButton.classList.remove("selected");
         menuButton.classList.remove("selected");
         contactButton.classList.add("selected");
-        content.appendChild(createContact());
+        dynamicPageArea.appendChild(createContact());
     });
-    */
 
-    return navBar;
+    createHome();
+
+    return content;
 }
-content.appendChild(createTheme());
-content.appendChild(createHome());
+
+createTheme();
