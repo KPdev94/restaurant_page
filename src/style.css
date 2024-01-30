@@ -71,9 +71,11 @@ brown {
 }
 img {
     max-width: 250px;
+    min-width: 50px;
 }
 #menuDiv {
     display: flex;
+    max-width: 100%;
     padding: 15px;
     background-color: azure;
     position: relative;
@@ -89,9 +91,15 @@ img {
 .nameSummaryPriceTops p {
     margin-top: 0;
 }
+.Pic {
+    display: flex;
+    max-width: 250px;
+    min-width: none;
+    max-height: 250px;
+}
 .Pic img {
-    height: max-content;
-    margin-bottom: 10px;
+    flex: 1 1 auto;
+    padding-bottom: 12px;
 }
 .menuItem {
     display: flex;
@@ -99,15 +107,21 @@ img {
 
 #dynamicPage {
     display: flex;
+    flex: 1 1 0;
+    justify-content: center;
 }
 
 #contactInfo {
     display: flex;
+    flex: 1 1 auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 15px auto;
+    align-self: center;
+    justify-self: center;
+    margin: 15px;
     padding: 15px;
     border-radius: 10px;
     max-width: 400px;
+    min-width: 250px;
 }

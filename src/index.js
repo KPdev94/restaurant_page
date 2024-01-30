@@ -76,6 +76,11 @@ function createMenu() {
 
         menuList.insertAdjacentHTML('beforeend', menuItems);
         menuDiv.style.position = 'relative';
+        if(window.screen.width <= 415){
+            document.querySelectorAll('.menuItem').forEach((item) => {
+                item.style.flexDirection = 'column';
+            })
+        }
 
         let currItem = document.getElementById(`${item.name}-pic`)
         currItem.src = item.pic;
@@ -87,15 +92,11 @@ function createMenu() {
 function createContact() {
     let dynamicPageArea = document.getElementById('dynamicPage');
 
-    let contactDiv = document.createElement('div');
-    contactDiv.setAttribute('id', 'contact');
-
     let contactInfo = document.createElement('div');
     contactInfo.setAttribute('id', 'contactInfo');
     contactInfo.style.backgroundImage = `url(${Buns})`;
 
-    dynamicPageArea.appendChild(contactDiv);
-    contactDiv.appendChild(contactInfo);
+    dynamicPageArea.appendChild(contactInfo);
 
     let contactName = document.createElement('h2');
     contactName.innerText = 'BrOs Burgers Management Team';
