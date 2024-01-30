@@ -49,7 +49,7 @@ function createMenu() {
     let dynamicPageArea = document.getElementById('dynamicPage');
 
     let menuDiv = document.createElement('div');
-    menuDiv.setAttribute('id', 'menu');
+    menuDiv.setAttribute('id', 'menuDiv');
 
     let menuList = document.createElement('div');
     menuList.setAttribute('id', 'menu-list');
