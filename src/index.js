@@ -158,7 +158,7 @@ function createTheme() {
     let dynamicPageArea = document.getElementById('dynamicPage');
 
     document.querySelector('#homeBtn').addEventListener('click', () => {
-        dynamicPageArea.removeChild(dynamicPageArea.lastChild);
+        dynamicPageArea.innerHTML = '';
         menuButton.classList.remove("selected");
         contactButton.classList.remove("selected");
         homeButton.classList.add("selected");
@@ -166,7 +166,7 @@ function createTheme() {
     });
 
     document.querySelector('#menuBtn').addEventListener('click',  () => {
-        dynamicPageArea.removeChild(dynamicPageArea.lastChild);
+        dynamicPageArea.innerHTML = '';
         homeButton.classList.remove("selected");
         contactButton.classList.remove("selected");
         menuButton.classList.add("selected");
@@ -174,7 +174,7 @@ function createTheme() {
     });
     
     document.querySelector('#contactBtn').addEventListener('click',  () => {
-        dynamicPageArea.removeChild(dynamicPageArea.lastChild);
+        dynamicPageArea.innerHTML = '';
         homeButton.classList.remove("selected");
         menuButton.classList.remove("selected");
         contactButton.classList.add("selected");
