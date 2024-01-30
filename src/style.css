@@ -76,6 +76,7 @@ img {
     display: flex;
     padding: 15px;
     background-color: azure;
+    position: relative;
 }
 .selected {
     background-color: lightgreen;
