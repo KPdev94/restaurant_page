@@ -75,6 +75,7 @@ function createMenu() {
         `
 
         menuList.insertAdjacentHTML('beforeend', menuItems);
+        menuDiv.style.position = 'relative';
 
         let currItem = document.getElementById(`${item.name}-pic`)
         currItem.src = item.pic;
